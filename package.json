@@ -1,0 +1,36 @@
+{
+  "name": "site-de-vagas-de-emprego",
+  "version": "1.0.0",
+  "description": "Site de Vagas de Emprego",
+  "main'": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariavitoriasilva/site-de-vagas-de-emprego.git"
+  },
+  "author": "Maria Vitória Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariavitoriasilva/site-de-vagas-de-emprego/issues"
+  },
+  "homepage": "https://github.com/mariavitoriasilva/site-de-vagas-de-emprego#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.2",
+    "path": "^0.12.7",
+    "react-scripts": "^4.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
