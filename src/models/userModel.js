@@ -36,5 +36,5 @@ DataSchema.pre('findOneAndUpdate', function(next){
   next();
 }); 
 
-const candidatos =  mongoose.model('Candidato', DataSchema);
-module.exports = candidatos;
+const users =  mongoose.model('User', DataSchema);
+module.exports = users;
