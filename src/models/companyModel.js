@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const DataSchema = new mongoose.Schema({
-  nome_usuario: {
+  nome_company: {
     type:String,
     required:true
 },
-  email_usuario: {
+  email_company: {
     type:String,
     required:true
 },
-  tipo_usuario: {
+  tipo_company: {
     type: Number, 
     default:1
   },
-  senha_usuario: {
+  senha_company: {
     type:String,
     required:true
 }, 
@@ -43,23 +43,23 @@ timestamps: true
 });
 //para criptografar a senha
 DataSchema.pre('save', function(next){
-  if(!this.isModified("senha_usuario")){
+  if(!this.isModified("senha_company")){
     return next();
   }
-  this.senha_usuario = bcrypt.hashSync(this.senha_usuario,10);
+  this.senha_company = bcrypt.hashSync(this.senha_company,10);
 next();
 });
 
 DataSchema.pre('findOneAndUpdate', function(next){
-  var password = this.getUpdate().senha_usuario+'';
+  var password = this.getUpdate().senha_company+'';
   if(password.length<55) {
-    this.getUpdate().senha_usuario = bcrypt.hashSync(password,id);
+    this.getUpdate().senha_company = bcrypt.hashSync(password,id);
   }
   next();
 }); 
 
 DataSchema.methods.isCorrectPassword = function (password, callback ){
-  bcrypt.compare(password,this.senha_usuario,function(err,same){
+  bcrypt.compare(password,this.senha_company,function(err,same){
       if(err){
           callback(err);
       }else{
@@ -69,5 +69,5 @@ DataSchema.methods.isCorrectPassword = function (password, callback ){
 }
 
 
-const usuarios =  mongoose.model('Usuarios', DataSchema);
-module.exports = usuarios;
+const companys =  mongoose.model('Companys', DataSchema);
+module.exports = companys;
