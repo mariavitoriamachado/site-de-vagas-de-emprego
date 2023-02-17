@@ -9,13 +9,13 @@ module.exports = {
     res.json(user);
     },
     async create(req, res) {
-      const {nome_company, email_company, tipo_company, senha_company, nome_empresa, Cnpj, Endereco, Telefone, Uf} = req.body;
+      const {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf} = req.body;
       let data = {};
 //verificar se o email já tem cadastro
       let user = await Company.findOne({email_company});
       
       if(!user) {
-        data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, Cnpj, Endereco, Telefone, Uf};
+        data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf};
         
         user = await Company.create(data);
         return res.status(200).json(user);
@@ -34,8 +34,8 @@ module.exports = {
         return res.json(user);
         },
         async update(req, res) {
-        const {_id, nome_company, email_company, tipo_company, senha_company, nome_empresa, Cnpj, Endereco, Telefone, Uf} = req.body;     
-        const data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, Cnpj, Endereco, Telefone, Uf};
+        const {_id, nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf} = req.body;     
+        const data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf};
         const user = await Company.findOneAndUpdate({_id},data,{new:true});
         res.json(user);
       },

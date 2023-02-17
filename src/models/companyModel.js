@@ -22,26 +22,27 @@ const DataSchema = new mongoose.Schema({
     type:String ,
     required: true
 },
-Cnpj: {
+cnpj: {
   type: Number,
   required: true,
 },
-Endereco: {
+address: {
   type: String,
   required: true
 },
-Telefone: {
+telefone: {
   type: String,
   required: true
 },
-Uf: {
+uf: {
   type: String,
   required: true
 },
 },{
 timestamps: true
 });
-//para criptografar a senha
+
+//criptógrafa a senha
 DataSchema.pre('save', function(next){
   if(!this.isModified("senha_company")){
     return next();
@@ -69,5 +70,5 @@ DataSchema.methods.isCorrectPassword = function (password, callback ){
 }
 
 
-const companys =  mongoose.model('Companys', DataSchema);
-module.exports = companys;
+const companies =  mongoose.model('Companies', DataSchema);
+module.exports = companies;
