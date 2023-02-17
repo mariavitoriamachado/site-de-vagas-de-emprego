@@ -6,12 +6,12 @@ module.exports = {
     res.json(userUser);
     },
     async create(req, res) {
-      const {nome, email, senha} = req.body;
+      const {name, email, password} = req.body;
       let data = {};
       let userUser = await User.findOne({email_empresa});
       
     if(!userUser) {
-        data = {nome, email, senha};
+        data = {name, email, password};
         
         userUser = await User.create(data);
         return res.status(200).json(userUser);
@@ -30,8 +30,8 @@ module.exports = {
         return res.json(userUser);
         },
     async update(req, res) {
-        const {_id, nome, email, senha} = req.body;
-        const data = {nome, email, senha};
+        const {_id, name, email, password} = req.body;
+        const data = {name, email, password};
         const userUser = await User.findOneAndUpdate({_id},data,{new:true});
         res.json(userUser);
       }

@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const DataSchema = new mongoose.Schema({
-  nome_company: {
+  employee_name: {
     type:String,
     required:true
 },
-  email_company: {
+  employee_email: {
     type:String,
     required:true
 },
-  tipo_company: {
+  employee_type: {
     type: Number, 
     default:1
   },
-  senha_company: {
+  employee_password: {
     type:String,
     required:true
 }, 
-  nome_empresa: {
+  company_name: {
     type:String ,
     required: true
 },
@@ -44,23 +44,23 @@ timestamps: true
 
 //criptógrafa a senha
 DataSchema.pre('save', function(next){
-  if(!this.isModified("senha_company")){
+  if(!this.isModified("employee_password")){
     return next();
   }
-  this.senha_company = bcrypt.hashSync(this.senha_company,10);
+  this.employee_password = bcrypt.hashSync(this.employee_password,10);
 next();
 });
 
 DataSchema.pre('findOneAndUpdate', function(next){
-  var password = this.getUpdate().senha_company+'';
+  var password = this.getUpdate().employee_password+'';
   if(password.length<55) {
-    this.getUpdate().senha_company = bcrypt.hashSync(password,id);
+    this.getUpdate().employee_password = bcrypt.hashSync(password,id);
   }
   next();
 }); 
 
 DataSchema.methods.isCorrectPassword = function (password, callback ){
-  bcrypt.compare(password,this.senha_company,function(err,same){
+  bcrypt.compare(password,this.employee_password,function(err,same){
       if(err){
           callback(err);
       }else{

@@ -1,7 +1,7 @@
 {
-  "name": "site-de-vagas-de-emprego",
+  "name": "site-de-vacancies-de-emprego",
   "version": "1.0.0",
-  "description": "Site de Vagas de Emprego",
+  "description": "Site de Vacancies de Emprego",
   "main'": "index.js",
   "scripts": {
     "client": "npm start --prefix client",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariavitoriasilva/site-de-vagas-de-emprego.git"
+    "url": "git+https://github.com/mariavitoriasilva/site-de-vacancies-de-emprego.git"
   },
   "author": "Maria Vitória Silva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mariavitoriasilva/site-de-vagas-de-emprego/issues"
+    "url": "https://github.com/mariavitoriasilva/site-de-vacancies-de-emprego/issues"
   },
-  "homepage": "https://github.com/mariavitoriasilva/site-de-vagas-de-emprego#readme",
+  "homepage": "https://github.com/mariavitoriasilva/site-de-vacancies-de-emprego#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",

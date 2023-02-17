@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
 const DataSchema = new mongoose.Schema({
-nome_vaga: {
+job_name: {
   type: String,
   required: true
 },
-descricao_vaga: {
+vacancy_description: {
   type: String,
   required: true
 },
-requisito: {
+requirements: {
   type: String,
   required: true
 },
-faixaSalario: {
+salary_range: {
   type: Number,
   required: true
 },
 },{
   timestamps: true
   });
-const vagas =  mongoose.model('Vagas', DataSchema);
-module.exports = vagas;
+const vacancies =  mongoose.model('Vacancies', DataSchema);
+module.exports = vacancies;

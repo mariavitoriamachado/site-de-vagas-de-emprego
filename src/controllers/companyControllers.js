@@ -9,13 +9,13 @@ module.exports = {
     res.json(user);
     },
     async create(req, res) {
-      const {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf} = req.body;
+      const {employee_name, employee_email, employee_type, employee_password, company_name, cnpj, address, phone, uf} = req.body;
       let data = {};
 //verificar se o email já tem cadastro
-      let user = await Company.findOne({email_company});
+      let user = await Company.findOne({employee_email});
       
       if(!user) {
-        data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf};
+        data = {employee_name, employee_email, employee_type, employee_password, company_name, cnpj, address, phone, uf};
         
         user = await Company.create(data);
         return res.status(200).json(user);
@@ -34,14 +34,14 @@ module.exports = {
         return res.json(user);
         },
         async update(req, res) {
-        const {_id, nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf} = req.body;     
-        const data = {nome_company, email_company, tipo_company, senha_company, nome_empresa, cnpj, address, phone, uf};
+        const {_id, employee_name, employee_email, employee_type, employee_password, company_name, cnpj, address, phone, uf} = req.body;     
+        const data = {employee_name, employee_email, employee_type, employee_password, company_name, cnpj, address, phone, uf};
         const user = await Company.findOneAndUpdate({_id},data,{new:true});
         res.json(user);
       },
       async login(req, res){
         const { email, senha } = req.body;
-        Company.findOne({email_company: email}, function(err,user){
+        Company.findOne({employee_email: email}, function(err,user){
             if(err){
                 console.log(err);
                 res.status(200).json({erro: "Erro no servidor. Por favor, tente novamente"});
@@ -59,7 +59,7 @@ module.exports = {
                             expiresIn: '24h'
                         })
               res.cookie('token', token, {httpOnly: true});
-              res.status(200).json({status:1, auth:true, token:token,id_client: user._id,user_name:user.nome_company,user_type:user.tipo_company});
+              res.status(200).json({status:1, auth:true, token:token,id_client: user._id,user_name:user.employee_name,user_type:user.employee_type});
     }
   })
 }
