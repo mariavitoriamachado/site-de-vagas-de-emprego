@@ -1,6 +1,6 @@
-const Company = require('../models/companyModel');
+const Company = require('../models/company.model');
 const jwt = require("jsonwebtoken");
-// const { checkout } = require('../routes');
+const { checkout } = require('../routes');
 const secret = "mysecret";
 
 module.exports = {

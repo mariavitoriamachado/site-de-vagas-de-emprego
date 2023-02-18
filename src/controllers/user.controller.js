@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+const User = require('../models/user.model');
 
 module.exports = {
   async index(req, res){
@@ -8,7 +8,7 @@ module.exports = {
     async create(req, res) {
       const {name, email, password} = req.body;
       let data = {};
-      let userUser = await User.findOne({email_empresa});
+      let userUser = await User.findOne({email});
       
     if(!userUser) {
         data = {name, email, password};

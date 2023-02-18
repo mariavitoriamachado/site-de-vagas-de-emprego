@@ -1,4 +1,4 @@
-const Vacancy = require('../models/vacanciesModel');
+const Vacancy = require('../models/vacancies.model');
 
 module.exports = {
   async index(req, res){
