@@ -17,17 +17,17 @@ routes.post('/api/companies/login',Company.login);
 routes.get('/api/companies/checktoken',Company.checkToken);
 routes.get('/api/companies/destroytoken',Company.destroyToken);
 
-// Routes Users
+//Routes Users
 routes.post('/api/users', User.create);
-routes.get('/api/users',User.index);
-routes.get('/api/users.details/:_id',User.details);
-routes.delete('/api/users/:_id',User.delete);
-routes.put('/api/users',User.update);
-routes.post('/api/users/login',User.login);
-routes.get('/api/users/checktoken',User.checkToken);
-routes.get('/api/users/destroytoken',User.destroyToken);
+routes.get('/api/users', User.index);
+routes.get('/api/users/:_id', User.details);
+routes.delete('/api/users/:_id', User.delete);
+routes.put('/api/users/:_id', User.update);
+routes.post('/api/users/login', User.login);
+routes.get('/api/users/checktoken', User.checkToken);
+routes.get('/api/users/destroytoken', User.destroyToken);
 
-//rotas de vacancies
+//Routes vacancies
 routes.post('/api/vacancies', Vacancy.create);
 routes.get('/api/vacancies',Vacancy.index);
 routes.get('/api/vacancies.details/:_id',Vacancy.details);
